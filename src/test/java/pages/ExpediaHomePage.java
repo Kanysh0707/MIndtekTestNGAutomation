@@ -26,7 +26,7 @@ public class ExpediaHomePage {
     @FindBy(id="d1-btn")
     public WebElement departingDate;
 
-    @FindBy(xpath = "//*[@id=\"wizard-flight-tab-oneway\"]/div[2]/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[1]/table/tbody/tr[3]/td[4]/button")
+    @FindBy(xpath = "//button[@aria-label='Aug 28, 2021 selected, current check in date.']")
     public WebElement getDepartingDate;
 
     @FindBy(xpath="//*[@id=\"wizard-flight-pwa-1\"]/div[3]/div[2]/button")
@@ -35,14 +35,24 @@ public class ExpediaHomePage {
     @FindBy(xpath = "//*[@id=\"wizard-flight-tab-oneway\"]/div[2]/div[2]/div/div/div/div/div[2]/div/div[3]/button")
     public WebElement done;
 
+    @FindBy(xpath = "//div[@class='uitk-text uitk-type-400 uitk-type-medium uitk-flex-item']")
+    public WebElement filterButton;
 
-    @FindBy(xpath="//*[@id=\"support-cs\"]/div")
+    @FindBy(id = "stops-1")
+    public WebElement oneStopButton;
+
+    @FindBy(xpath = "//button[@data-test-id='sort-filter-done-button']")
+    public WebElement doneButton;
+
+
+
+    @FindBy(xpath="//div[contains(text(),'Support')]")
     public WebElement supportButton;
     
-    @FindBy(xpath="//*[@id=\"cpce-vac-launch\"]/div/button/svg")
-    public WebElement help;
+    @FindBy(xpath="//*[@id=\"cpce-vac-launch\"]/div/button")
+    public WebElement helpButton;
 
-    
+
 
 
 
