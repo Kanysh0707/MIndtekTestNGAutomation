@@ -48,10 +48,8 @@ public class ExpediaHomePage {
 
     @FindBy(xpath="//div[contains(text(),'Support')]")
     public WebElement supportButton;
-    
-    @FindBy(xpath="//*[@id=\"cpce-vac-launch\"]/div/button")
-    public WebElement helpButton;
-
+@FindBy(xpath="//div[@class='fab-container']")
+    public WebElement help1;
 
 
 

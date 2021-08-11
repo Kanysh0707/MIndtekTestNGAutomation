@@ -29,13 +29,8 @@ public class StoreAddCartTests extends TestBase {
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertEquals(addCartSuccessMessage,expectedSuccessMessage);
 
-
         String quantity=storeAppHomePage.quantity.getText();
         String total=storeAppHomePage.totalPrice.getText();
-        //item price, quantity, total
-        //itemPrice->$16.51
-        //quantity->1
-        //total->16.51
 
         double itemPriceDouble= DataUtils.remove$AndConvertToDouble(itemPrice);
         double quantityDouble=Double.parseDouble(quantity);
@@ -65,6 +60,45 @@ public class StoreAddCartTests extends TestBase {
         double expectedTotal=totalProductDouble+shippingAmountDouble+taxAmountDouble;
         softAssert.assertEquals(actualTotalDouble,expectedTotal);
         softAssert.assertAll();
+    }
+    @Test
+    public void test2() throws InterruptedException {
+        StoreAppHomePage storeAppHomePage=new StoreAppHomePage();
+        StoreAppShoppingCartPage storeAppShoppingCartPage=new StoreAppShoppingCartPage();
+        driver.get(ConfigReader.getProperty("StoreAppURL"));
+        String itemPrice=storeAppHomePage.prices.get(0).getText();
+
+        BrowserUtils.hoverOver(storeAppHomePage.item1);
+
+        storeAppHomePage.addCartItem1.click();
+        Thread.sleep(2000);
+        storeAppHomePage.closeButton.click();
+
+        BrowserUtils.scroll(700);
+        BrowserUtils.hoverOver(storeAppHomePage.item2);
+
+        storeAppHomePage.addCartItem2.click();
+        storeAppHomePage.proceedToCheckOut.click();
+
+        String totalProduct=storeAppShoppingCartPage.totalProduct.getText();
+        double totalProductDouble=DataUtils.remove$AndConvertToDouble(totalProduct);
+
+//
+//        softAssert.assertEquals(actualPrice,totalProductDouble);
+//
+//        String shippingAmount=storeAppShoppingCartPage.totalShipping.getText();
+//        double shippingAmountDouble=DataUtils.remove$AndConvertToDouble(shippingAmount);
+//
+//        String taxAmount=storeAppShoppingCartPage.tax.getText().substring(1);
+//        double taxAmountDouble=DataUtils.remove$AndConvertToDouble(taxAmount);
+//
+//        String actualTotal=storeAppShoppingCartPage.totalPrice.getText();
+//        double actualTotalDouble=DataUtils.remove$AndConvertToDouble(actualTotal);
+//
+//        double expectedTotal=totalProductDouble+shippingAmountDouble+taxAmountDouble;
+//        softAssert.assertEquals(actualTotalDouble,expectedTotal);
+//        softAssert.assertAll();
+
 
 
 

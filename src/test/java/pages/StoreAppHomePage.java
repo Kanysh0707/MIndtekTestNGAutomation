@@ -37,6 +37,15 @@ public class StoreAppHomePage {
     @FindBy(xpath = "//a[@class='btn btn-default button button-medium']")
     public WebElement proceedToCheckOut;
 
+    @FindBy(xpath = "//ul[@id='homefeatured']/li[2]")
+    public WebElement item2;
+
+    @FindBy(xpath = "//ul[@id='homefeatured']//a[@data-id-product='2']")
+    public WebElement addCartItem2;
+
+    @FindBy(xpath="//span[@title='Close window']")
+    public WebElement closeButton;
+
 
 
 
